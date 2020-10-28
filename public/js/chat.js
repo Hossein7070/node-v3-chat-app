@@ -96,29 +96,29 @@ const sidebarTemplate = document.querySelector('#sidebar-template').innerHTML
 //options
 const {username, room} = Qs.parse(location.search, {ignoreQueryPrefix: true})
 
-const autoscroll = ()=>{
-    //New message element
-    const $newMessage = $messages.lastElementChild
+// const autoscroll = ()=>{
+//     //New message element
+//     const $newMessage = $messages.lastElementChild
 
-    //Height of new meesage
-    const newMessagesStyles = getComputedStyle($newMessage)
-    const newMessageMargin = parseInt(newMessagesStyles.marginBottom)
-    const newMessageHeight = $newMessage.offsetHeight + newMessageMargin
+//     //Height of new meesage
+//     const newMessagesStyles = getComputedStyle($newMessage)
+//     const newMessageMargin = parseInt(newMessagesStyles.marginBottom)
+//     const newMessageHeight = $newMessage.offsetHeight + newMessageMargin
 
-    //visible Height
-    const visibleHeight = $message.offsetHeight
+//     //visible Height
+//     const visibleHeight = $message.offsetHeight
 
-    //Height of message container
-    const containerHeight = $message.scrollHeight
+//     //Height of message container
+//     const containerHeight = $message.scrollHeight
 
-    //How far have I scrolled?
-    const scrollOffset = $messages.scrollTop + visibleHeight
+//     //How far have I scrolled?
+//     const scrollOffset = $messages.scrollTop + visibleHeight
 
-    if(containerHeight - newMessageHeight <= scrollOffset){
-        $messages.scrollTop = $messages.scrollHeight
-    }
-
-}
+//     if(containerHeight - newMessageHeight <= scrollOffset){
+//         $messages.scrollTop = $messages.scrollHeight
+//     }
+//
+//}
 //Goal: Create a separete event for location sharing mesages
 //
 // 1. Have server emit "locationMessage" with the URL
@@ -165,7 +165,7 @@ socket.on('message', (message)=>{
         createdAt: moment(message.createdAt).format('h:mm a')
     })
     $messages.insertAdjacentHTML('beforeend',html)
-    autoscroll()
+   // autoscroll()
 })
 
 // socket.on('locationMessage', (url)=>{
@@ -179,7 +179,7 @@ socket.on('locationMessage', (message)=>{
         createdAt: moment(message.createdAt).format('h:mm a')
     })
     $messages.insertAdjacentHTML('beforeend', html)
-    autoscroll()
+    //autoscroll()
 })
 socket.on('roomData', ({room, users})=>{
     // console.log(users)
