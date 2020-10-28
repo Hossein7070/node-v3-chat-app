@@ -252,7 +252,7 @@ socket.on('join', (options, callback)=>{
         callback() //letting clients know they have joined
 
         //socket.emit, io.emit, socket.broadcast.emit
-        //((io.to.emit)) --> it emits an event to everybody in a specific room
+        //((io.to.emit)) ----> it emits an event to everybody in a specific room
         //((socket.broadcast.to.emit)) --> sending an event to everyone except for the specific client but is is limiting it to specific chatroom
 
     })
